@@ -56,140 +56,77 @@ namespace Priority
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        async Task PutTaskDelay(int i)
         {
-            int prio1 = int.Parse(txtPrio1.Text);
-            int prio2 = int.Parse(txtPrio2.Text);
-            int prio3 = int.Parse(txtPrio3.Text);
+            await Task.Delay(i);
+        }
+
+        public int getMaxPriority(int[] arr)
+        {
+            int index = 0;
+            int max = int.MinValue;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (max < arr[i])
+                {
+                    max = arr[i];
+                    index = i;
+                }
+            }
+            return index;
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = false;
+            progressBar1.Value = 0;
+            progressBar2.Value = 0;
+            progressBar3.Value = 0;
 
             int time1 = int.Parse(textBox1.Text);
             int time2 = int.Parse(textBox2.Text);
             int time3 = int.Parse(textBox3.Text);
 
-            progressBar1.Maximum = 100;
-            progressBar2.Maximum = 100;
-            progressBar3.Maximum = 100;
+            int[] priority = new int[3];
 
-            Thread thread1 = new Thread(delegate ()
+            priority[0] = int.Parse(txtPrio1.Text);
+            priority[1] = int.Parse(txtPrio2.Text);
+            priority[2] = int.Parse(txtPrio3.Text);
+
+            for (int i = 0; i < 3; i++)
             {
-                if (progressBar1.Value == time1)
+                int index = getMaxPriority(priority);
+                priority[index] = 0;
+                if (index == 0)
                 {
-                    if (prio2 > prio3)
+                    for (int j = 0; j <= 100; j++)
                     {
-                        AnimateProgBar2(time2 * 1000);
-
-                        if (progressBar2.Value == time2)
-                        {
-                            AnimateProgBar3(time3 * 1000);
-                        }
-                    }
-                    else
-                    {
-                        AnimateProgBar3(time3 * 1000);
-
-                        if (progressBar3.Value == time3)
-                        {
-                            AnimateProgBar2(time2 * 1000);
-                        }
+                        progressBar1.Value = j;
+                        await PutTaskDelay(time1 * 10);
                     }
                 }
-            });
 
-            Thread thread2 = new Thread(delegate ()
-            {
-                if (progressBar2.Value == time2)
+                if (index == 1)
                 {
-                    if (prio1 > prio3)
+                    for (int j = 0; j <= 100; j++)
                     {
-                        AnimateProgBar1(time1 * 1000);
-
-                        if (progressBar1.Value == time1)
-                        {
-                            AnimateProgBar3(time3 * 1000);
-                        }
+                        progressBar2.Value = j;
+                        await PutTaskDelay(time2 * 10);
                     }
-                    else
-                    {
-                        AnimateProgBar3(time3 * 1000);
-
-                        if (progressBar3.Value == time3)
-                        {
-                            AnimateProgBar1(time1 * 1000);
-                        }
-                    }
+                    priority[1] = 0;
                 }
-            });
 
-            Thread thread3 = new Thread(delegate ()
-            {
-                if (progressBar3.Value == time3)
+                if (index == 2)
                 {
-                    if (prio1 > prio2)
+                    for (int j = 0; j <= 100; j++)
                     {
-                        AnimateProgBar1(time1 * 1000);
-
-                        if (progressBar1.Value == time1)
-                        {
-                            AnimateProgBar2(time2 * 1000);
-                        }
+                        progressBar3.Value = j;
+                        await PutTaskDelay(time3 * 10);
                     }
-                    else
-                    {
-                        AnimateProgBar2(time2 * 1000);
-
-                        if (progressBar2.Value == time2)
-                        {
-                            AnimateProgBar1(time1 * 1000);
-                        }
-                    }
-                }
-            });
-
-            if (prio1 > prio2 && prio1 > prio3)
-            {
-                AnimateProgBar1(time1 * 1000);
-                thread1.Start();
-
-                if (progressBar1.Value == progressBar1.Maximum && prio2 > prio3)
-                {
-                    AnimateProgBar2(time2 * 1000);
-                }
-                else
-                {
-                    AnimateProgBar3(time3 * 1000);
+                    priority[2] = 0;
                 }
             }
-
-            if(prio2 > prio1 && prio2 > prio3)
-            {
-                thread2.Start();
-                AnimateProgBar2(time2 * 1000);
-
-               if(progressBar2.Value == progressBar2.Maximum && prio1 > prio3)
-                {
-                      AnimateProgBar1(time1 * 1000);
-                }
-                else
-                {
-                      AnimateProgBar3(time3 * 1000);
-                }
-            }
-
-            if(prio3 > prio1 && prio3 > prio2)
-            {  
-                thread3.Start();
-                AnimateProgBar3(time3 * 1000);
-                
-                if (progressBar3.Value == progressBar3.Maximum && prio1 > prio2)
-                {
-                    AnimateProgBar1(time1 * 1000);
-                }
-                else
-                {
-                    AnimateProgBar2(time2 * 1000);
-                }
-            }
-
+            button1.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -208,7 +145,7 @@ namespace Priority
         {
             if (progressBar2.Value < 100)
             {
-                progressBar2.Increment(1); ;
+                progressBar2.Increment(1);
             }
             else
             {
@@ -220,7 +157,7 @@ namespace Priority
         {
             if (progressBar3.Value < 100)
             {
-                progressBar3.Increment(1); ;
+                progressBar3.Increment(1);
             }
             else
             {

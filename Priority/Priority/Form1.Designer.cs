@@ -54,7 +54,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(642, 115);
+            this.button1.Location = new System.Drawing.Point(562, 115);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -92,28 +92,28 @@
             this.Processes.Controls.Add(this.txtPrio1);
             this.Processes.Location = new System.Drawing.Point(12, 12);
             this.Processes.Name = "Processes";
-            this.Processes.Size = new System.Drawing.Size(776, 215);
+            this.Processes.Size = new System.Drawing.Size(651, 215);
             this.Processes.TabIndex = 4;
             this.Processes.TabStop = false;
             this.Processes.Text = "Processes";
             // 
             // progressBar3
             // 
-            this.progressBar3.Location = new System.Drawing.Point(438, 178);
+            this.progressBar3.Location = new System.Drawing.Point(376, 178);
             this.progressBar3.Name = "progressBar3";
             this.progressBar3.Size = new System.Drawing.Size(140, 23);
             this.progressBar3.TabIndex = 4;
             // 
             // progressBar2
             // 
-            this.progressBar2.Location = new System.Drawing.Point(439, 115);
+            this.progressBar2.Location = new System.Drawing.Point(377, 115);
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(139, 23);
             this.progressBar2.TabIndex = 4;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(442, 48);
+            this.progressBar1.Location = new System.Drawing.Point(380, 48);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(136, 23);
             this.progressBar1.TabIndex = 4;
@@ -133,9 +133,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(185, 151);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(203, 13);
+            this.label9.Size = new System.Drawing.Size(159, 13);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Enter running time of process 3 (Max 10): ";
+            this.label9.Text = "Enter running time of process 3: ";
             this.label9.Click += new System.EventHandler(this.label1_Click);
             // 
             // label8
@@ -143,19 +143,19 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(185, 87);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(203, 13);
+            this.label8.Size = new System.Drawing.Size(159, 13);
             this.label8.TabIndex = 1;
-            this.label8.Text = "Enter running time of process 2 (Max 10): ";
+            this.label8.Text = "Enter running time of process 2: ";
             this.label8.Click += new System.EventHandler(this.label1_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(188, 20);
+            this.label7.Location = new System.Drawing.Point(185, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(203, 13);
+            this.label7.Size = new System.Drawing.Size(159, 13);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Enter running time of process 1 (Max 10): ";
+            this.label7.Text = "Enter running time of process 1: ";
             this.label7.Click += new System.EventHandler(this.label1_Click);
             // 
             // label5
@@ -198,9 +198,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(188, 51);
+            this.textBox1.Location = new System.Drawing.Point(184, 51);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 20);
+            this.textBox1.Size = new System.Drawing.Size(140, 20);
             this.textBox1.TabIndex = 3;
             // 
             // txtPrio1
@@ -226,7 +226,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 241);
+            this.ClientSize = new System.Drawing.Size(675, 241);
             this.Controls.Add(this.Processes);
             this.Name = "Form1";
             this.Text = "Form1";
